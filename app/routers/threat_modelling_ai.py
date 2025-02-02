@@ -9,7 +9,7 @@ router = APIRouter(tags=["Threat Modelling AI Agent"], prefix="/threat-modelling
 adviserAIagent = OpenAIService()
 
 
-@router.post("/assess_application", status_code=status.HTTP_200_OK)
+@router.post("/assess_application", status_code=status.HTTP_200_OK,)
 async def assess_application(
     grammar_text: TextRequest,
     current_user: CurrentUserDep

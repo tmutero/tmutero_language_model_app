@@ -15,6 +15,8 @@ To set up and run the app, please follow these steps:
    ```shell
    cd tmutero_language_model_api
    ```
+   - Modify file env.example to .env and add your Chat GPT key for OPENAI_API_KEY.
+   
 2. Install the dependencies:
 
    ```shell
@@ -48,7 +50,7 @@ To set up and run the app, please follow these steps:
 
 6. Open your browser and go to `http://localhost:8000` to see the app running.
 
-7. Since there is only one SQLAlchemy model, you can create a new migration file by running the following command:
+7. Since there is only one SQLAlchemy model for Users table, you can create a new migration file by running the following command:
 
    ```shell
    make autogenerate msg="user_init"
@@ -80,7 +82,7 @@ To set up and run the app, please follow these steps:
    ```shell
    cd tests
    ```
-    - To run all unit test found in this repository
+12. To run all unit test found in this repository
     ```shell
     pytest
       ```

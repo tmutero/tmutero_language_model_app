@@ -17,7 +17,6 @@ class OpenAIService:
     async def query(self, prompt: str, max_tokens: int = 150, temperature: float = 0.7) -> str:
         """
         Sends a prompt to the OpenAI API and returns the generated text.
-
         :param prompt: The prompt text to send to the model.
         :param max_tokens: The maximum number of tokens to generate.
         :param temperature: Sampling temperature to control randomness.
@@ -26,7 +25,7 @@ class OpenAIService:
         try:
             response = await self.client.chat.completions.create(
                 model=self.model,
-                messages=[{"role": "user", "content": prompt}],  # Correct input format
+                messages=[{"role": "user", "content": prompt}],
                 max_tokens=max_tokens,
                 temperature=temperature
             )

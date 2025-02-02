@@ -7,6 +7,7 @@ from app.routers import threat_modelling_ai
 
 from app.settings import settings
 
+
 api_router = APIRouter(prefix=settings.API_V1_STR)
 
 api_router.include_router(user.router)
