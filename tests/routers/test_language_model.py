@@ -10,8 +10,6 @@ async def mock_get_current_user():
     return UserModel(id=1, email="testuser@example.com", password="hashedpassword")
 
 app.dependency_overrides[UserService.get_current_user] = mock_get_current_user
-
-
 client = TestClient(app)
 
 @pytest.fixture
@@ -47,7 +45,6 @@ def test_suggest_grammar_correction(mock_openai_service):
     response = client.post("/api/v1/model/suggest_grammar_correction", json=payload)
     assert response.status_code == 200
     assert response.json() == "This is an example sentence with bad grammar."
-
 
 def test_suggest_summarization(mock_openai_service):
     sample_text = (

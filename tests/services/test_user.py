@@ -21,7 +21,7 @@ def mock_user():
 @pytest.mark.asyncio
 async def test_register_user_success(mock_session):
 
-    mock_session.execute.return_value.scalars.return_value.first.return_value = None  # User doesn't exist
+    mock_session.execute.return_value.scalars.return_value.first.return_value = None
     mock_session.commit = AsyncMock()
     mock_session.refresh = AsyncMock()
 
@@ -37,7 +37,7 @@ async def test_register_user_success(mock_session):
 @pytest.mark.asyncio
 async def test_register_already_existing_user_success(mock_session):
 
-    mock_session.execute.return_value.scalars.return_value.first.return_value = None  # User doesn't exist
+    mock_session.execute.return_value.scalars.return_value.first.return_value = None
     mock_session.commit = AsyncMock()
     mock_session.refresh = AsyncMock()
 
@@ -100,12 +100,11 @@ async def test_login_success(mock_session, mock_user):
     assert token.access_token == "fake_token"
     assert token.token_type == "Bearer"
 
-
 @pytest.mark.asyncio
 async def test_login_invalid_credentials(mock_session):
 
     with patch("app.daos.user.UserDao.get_by_email", new_callable=AsyncMock) as mock_get_by_email:
-        mock_get_by_email.return_value = None  # User not found
+        mock_get_by_email.return_value = None
 
         form_data = AsyncMock(username="wronguser@example.com", password="password123")
 
